@@ -3,7 +3,7 @@
 Version: 1.0.0 (Media Categorizer — Collection Scan, Metadata Enrichment & Dual-Constitution Tagging)  
 Date: 2026-06-15  
 Status: RELEASED  
-Repo: https://github.com/FuegoDevelopmentTeam/MUSIC.git (modul-márkanév: **MeCat**)  
+Repo: https://github.com/FuegoDevelopmentTeam/MeCat (korábbi remote: MUSIC.git)  
 Tech Stack: Python feldolgozó worker (audio/video analízis, ID3/metaadat írás), Supabase/PostgreSQL (katalógus DB), Next.js + Tailwind (vezérlő dashboard, Alkotmány-szerkesztő), pluggable AI (tag-javaslat), GWS/Drive szinkron a tanárok felé.
 
 > **Forrásdokumentumok (a korábbi fejlesztésből kivonatolva):** `docs/MASTER_CONCEPT.md` (v9.0 — LPDPC + zenei tag rendszer), `docs/zenei_tag_szotar.md`, `docs/kiindulasi_docs/*`, `Agents/Ask_Agent_Master_Concept_Builder.md`. Ezek megmaradnak referenciaként; ez a fájl a rendszerkonform, AI-ready szintézis.
