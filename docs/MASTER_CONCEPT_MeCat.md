@@ -8,6 +8,8 @@ DANA SSoT: `../DANA/docs/MASTER_CONCEPT.md` — kanonikus döntés: **D083**, **
 
 > **Forrásdokumentumok (megőrizve referenciaként):** `docs/MASTER_CONCEPT.md` (v9.0), `docs/zenei_tag_szotar.md`, `docs/kiindulasi_docs/music_tags.md`, **`docs/MeCat_Music_Tags.md`** (új, kanonikus tag-hierarchia). A régi `music_tags.md` **nem** SSoT — csak brainstorming-forrás.
 
+> **DANA Platform-elv Adoptáció (v1.34.0 — P52–P62, D095):** A MeCat több új platform-elv **referencia-megvalósítása**: **P58** (a Minősítő ↔ Ízlés Alkotmány a **scoped-overlay kaszkád** kanonikus esete, a P49 általánosításaként); **P57** (a `constitutions.rules_json` determinisztikus taggelő szabályok a **közös Rules-as-Data policy-engine**-en); **P60/P50** (a komparatív ízlés-aggregátor a **közös reputáció-/Bradley–Terry-motoron**, nem külön); **P51** (tartalom-címezhető média + proveniencia — már beépítve). **Kötelező:** **P56/D095** (a média-scope [`shared`/`teacher`/`student-visible`, D092] a tenant-RLS + meta-org-buborék mentén; láthatóság ⟂ funkció); **P53** (jövőbeli jogdíj-bizonylat Money value object). A KineLex `term_id` mint **gráf-hivatkozás** (P52+ #6 re-base).
+
 ---
 
 ## 0. Hogyan változott a DANA tér a MeCat megjelenésével (Top-Down ▼)
