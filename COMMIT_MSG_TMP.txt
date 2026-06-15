@@ -1,5 +1,0 @@
-﻿chore: harmonise backlog prompt cache and add legacy/prototype files
-
-- Update backlog prompt cache to v1.1.0 and add PR-012 advanced audio-embedding prompt
-- Add untracked legacy prototype files (MASTER_CONCEPT, Ask_Agent_Master_Concept_Builder, zenei_tag_szotar)
-- Stage deletion of obsolete files
