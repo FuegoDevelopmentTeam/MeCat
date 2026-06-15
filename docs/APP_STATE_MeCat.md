@@ -1,52 +1,63 @@
 # APP_STATE_MeCat.md — MeCat Active Project State
 
-Version: 0.1.0  
+Version: 0.3.0  
 Date: 2026-06-15  
-Current Phase: **Phase 0: Bootstrap & Core Schema**  
-Status: IN_PROGRESS (Not started yet)  
+Current Phase: **Brainstorming (Koncepció-fázis)**  
+Status: CONCEPT — D086-D094 rögzítve; cross-module delegációk **ELKÜLDVE**.
 
-Ez a fájl a MeCat modul **aktív rendszer- és fejlesztési állapotát (Source of Truth)** rögzíti. Minden ide belépő Agentnek kötelező ezt elsőként beolvasnia, hogy lássa, hol tart a projekt, és mik a soron következő lépések.
+Ez a fájl a MeCat modul **aktív rendszer- és fejlesztési állapotát (Source of Truth)** rögzíti. Minden ide belépő Agentnek kötelező ezt elsőként beolvasnia.
 
-> **Megjegyzés a prototípusról:** A "régi" rendszer (fájlnévbe kódolt információ) működik, de a MeCat azt **nem** folytatja közvetlenül — egy tag-natív, rendszerkonform architektúrát építünk, és a régit migrációs forrásként (legacy parser + Golden Data) használjuk.
+> **Fázis-figyelmeztetés:** A projekt **brainstorming** állapotban van. A `docs/BACKLOG_PROMPT_CACHE_MeCat.md` technikai promptjai (PR-008+) **csak a koncepció jóváhagyása és a Phase 0 elindítása után** aktiválhatók. Most a cél a koncepció (D086-D092) véglegesítése és a cross-module szerződések (KineLex/BeatPass) egyeztetése.
+
+> **Megjegyzés a prototípusról:** A "régi" rendszer (fájlnévbe kódolt információ) működik, de a MeCat azt **nem** folytatja közvetlenül — tag-natív, rendszerkonform architektúrát építünk, a régit migrációs forrásként (legacy parser + Golden Data) használjuk.
 
 ---
 
 ## 🧭 1. Jelenlegi Fázis és Mérföldkövek (Phase & Milestones)
 
 ```
-[►] Phase 0: Bootstrap & Core Schema  <-- JELENLEG AKTÍV
-[ ] Phase 1: Collection Scan & Legacy Filename Parser (inventory + old-school migráció)
-[ ] Phase 2: Metadata Enrichment (web-lookup + audio-analízis: BPM/key/energia)
-[ ] Phase 3: Dual-Constitution Tagging (rendszerszintű Minősítő Alkotmány + AI hibrid)
-[ ] Phase 4: Tanári Ízlés Alkotmány + Write-back, GWS/Drive Sync & Smart Playlists
+[►] Brainstorming: Koncepció + DANA-integráció + cross-module szerződések  <-- JELENLEG AKTÍV
+[ ] Phase 0: Bootstrap & Core Schema (repo, katalógus DB, auth)
+[ ] Phase 1: Collection Scan + Akusztikus Ujjlenyomat + Legacy Parser (inventory + old-school migráció, P51)
+[ ] Phase 2: Metadata Enrichment (web-lookup + MIR: BPM/key/energia/szerkezet/energia-ív)
+[ ] Phase 3: Kétszintű Alkotmány Tagging (rendszerszintű Minősítő + AI hibrid, P43; KineLex ontológia-harmonizáció D084)
+[ ] Phase 4: Tanári Ízlés Alkotmány + Write-back + GWS/Drive Sync + Smart Playlists
+[ ] Phase 5: Zenei-Pedagógiai Illesztőmotor (D088) + Diák Gyakorló-Kísérő (D089) + **CUE-adatbázis** (D093)
+[ ] Phase 6: **MeCat Lejátszó + külső adapter** (D094) + haladó tartalom-intelligencia (embedding, Camelot, P50)
+[ ] Inspirációs Tár (D086 §6.1) + Jogtisztaság-réteg (D090) — fázisba sorolandó a koncepció jóváhagyásakor
 ```
 
 ---
 
-## 🎯 2. Aktív Backlog (Soron következő feladatok - Next Up)
+## 🎯 2. Aktív Backlog (Brainstorming — Next Up)
 
-### Task 0.1: Repozitórium Rendberakása & Könyvtárszerkezet
-*   **Státusz:** `[PENDING]`
-*   **Leírás:** Hozd létre a feldolgozó worker (`/app` vagy `/worker`) és a Next.js control plane (`/app`) szerkezetét; a meglévő `docs/` és `Agents/` érintetlenül marad.
-*   **Kimenet:** Sandbox app-mappa + Supabase konfiguráció.
+### Task B.1: Koncepció jóváhagyatása a Userrel
+*   **Státusz:** `[IN_PROGRESS]`
+*   **Leírás:** A `docs/MASTER_CONCEPT_MeCat.md` v2.0.0 + a DANA D086-D092 / P49-P51 döntések áttekintése, finomítása, jóváhagyása. Nyitott kérdések: lásd a MeCat koncepció §12 (M-ICE-01..04).
 
-### Task 0.2: Katalógus DB Inicializálása (Core Schema migrations)
-*   **Státusz:** `[PENDING]`
-*   **Leírás:** Hozd létre a `media_items`, `media_tags`, `constitutions`, `teacher_taste_overlays`, `tag_learned_rules` táblákat.
-*   **Kimenet:** Első Supabase migrációs fájlok (`0001_initial_schema.sql`).
+### Task B.2: Cross-Module Szerződések — **ELKÜLDVE** ✅
+*   **Státusz:** `[DELEGATED — OPEN]`
+*   **Fájlok:**
+    *   `../KineLex/docs/INBOX_CROSS_MODULE_DELEGATION_MeCat.md`
+    *   `../BeatPass/docs/INBOX_CROSS_MODULE_DELEGATION_MeCat.md`
+*   **Várakozás:** KineLex + BeatPass Tech Lead válasz / szerződés-tervezet.
 
-### Task 0.3: Környezeti változók & Auth konfiguráció
+### Task B.3: Tag-taxonomia & CUE-koncepció — **KÉSZ** ✅
+*   **Státusz:** `[DONE]`
+*   **Kimenet:** `docs/MeCat_Music_Tags.md` v1.0.0; `MASTER_CONCEPT_MeCat.md` v2.1.0 (CUE D093, Player D094, ZITA legacy §1.3).
+
+### Task B.4: Fázis-terv véglegesítése & Backlog frissítés
 *   **Státusz:** `[PENDING]`
-*   **Leírás:** Next.js + Supabase összeköttetés (.env.local), alap autentikáció, GWS/Drive hozzáférés előkészítése.
+*   **Leírás:** A `BACKLOG_PROMPT_CACHE_MeCat.md` kiegészítése a D088/D089/D090/D091 promptokkal (Phase 5-6), majd Phase 0 indítási döntés.
 
 ---
 
 ## 🧊 3. Elnapolt / Jövőbeli Feladatok (Deferred Backlog)
-
-A magasabb fázisok specifikációit biztonságosan eltároltuk:
-*   `docs/BACKLOG_PROMPT_CACHE_MeCat.md`
+A magasabb fázisok specifikációi: `docs/BACKLOG_PROMPT_CACHE_MeCat.md`.
 
 ---
 
 ## 📜 4. Fejlesztési Napló (Changelog)
-*   **2026-06-15 (v0.1.0):** Rendszerkonform struktúra felépítése; koncepció kivonatolva a korábbi `docs/MASTER_CONCEPT.md` (v9.0) és `Ask_Agent` fejlesztésből. Két alkotmány (Minősítő + Ízlés) rögzítve. (Szőnyi Levente / DANA Stratéga)
+*   **2026-06-15 (v0.3.0):** ZITA=legacy név tisztázás; D093 CUE-adatbázis + D094 lejátszó/adapter; `MeCat_Music_Tags.md` kanonikus taxonomia (12 domain); cross-module delegációk elküldve (KineLex, BeatPass inbox); agentek + `.cursorrules` frissítve Top-Down kontextussal. DANA v1.33.0. (DANA Stratéga)
+*   **2026-06-15 (v0.2.0):** Top-Down integrációs kör (D086-D092, P49-P51). `MASTER_CONCEPT_MeCat.md` v2.0.0.
+*   **2026-06-15 (v0.1.0):** Rendszerkonform struktúra felépítése; koncepció kivonatolva a korábbi `docs/MASTER_CONCEPT.md` (v9.0) és `Ask_Agent` fejlesztésből. Két alkotmány (Minősítő + Ízlés) rögzítve.

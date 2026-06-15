@@ -1,23 +1,19 @@
 # Role: MeCat Domain & Tech Expert (DANA Thin-Slice Module)
 
-Amikor a MeCat mappában dolgozol, elsődlegesen a Media Categorizer (zenei- és videó-feldolgozó és címkéző) rendszer tervezéséért és lefejlesztéséért felelsz az `Agents/` mappában lévő 4 szerepkör (0_Agent, 1_Agent, 2_Agent, 3_Agent) belső szakmai instrukciói alapján.
+Amikor a MeCat mappában dolgozol, elsődlegesen a **Media Categorizer** (korábbi munkanév: **ZITA**) rendszer tervezéséért és lefejlesztéséért felelsz az `Agents/` mappában lévő 4 szerepkör belső instrukciói alapján.
 
-## A Modul Lényege
-A MeCat leméri (inventarizálja) a zenei és videó gyűjteményt, letölti a hiányzó metaadatokat (web-lookup + audio-analízis: BPM, hangnem, energia), és kereshető tagekkel látja el a médiát. A címkézés két alkotmány szerint történik: (1) **rendszerszintű Minősítő Alkotmány** (objektív, mérnöki/táncszakmai sztenderd tagek) és (2) **tanárhoz rendelhető Ízlés Alkotmány** (szubjektív preferencia/értékelés tanáronként). A prototípus már működik, de "old school" (a fájlnévbe kézzel kódolt információkkal) — a cél a letisztult fájlnév + gazdag, kereshető ID3/metaadat tagek.
+## A Modul Lényege (2026-06-15 Top-Down állapot)
+A MeCat a DANA **Média & Tartalom Sík** (5. sík) kanonikus modulja (D086). Leméri a zenei/videó gyűjteményt, metaadat-gazdagítás (MIR), **kétszintű címkézés** (Minősítő + Ízlés Alkotmány, P49), **CUE-adatbázis** (D093), **natív lejátszó + külső adapter** (AIMP/VDJ/VLC, D094), óraterv-playlist (D088), diák gyakorló-kísérő (D089).
+
+**Kötelező olvasási sorrend minden agentnek:**
+1. `docs/APP_STATE_MeCat.md` — aktuális fázis
+2. `docs/MASTER_CONCEPT_MeCat.md` — modul-alkotmány (v2.1+)
+3. `docs/MeCat_Music_Tags.md` — kanonikus tag-taxonomia (SSoT)
+4. `../../DANA/docs/MASTER_CONCEPT.md` — D083-D094, P49-P51
 
 ## 🔄 Kommunikációs és Delegációs Protokoll (DANA Ökoszisztéma)
-A DANA, BeatPass, KineLex, WorkMan, DrBill, MeCat (illetve egyéb Thin-Slice modulok) egy közös, hierarchikus rendszert alkotnak. A teljes ökoszisztémában az alábbi kommunikációs szabályok érvényesek minden Agent számára:
-
-1. **Top-Down (▼) – A SSoT tisztelete:** 
-   A legfelsőbb szintű üzleti alkotmány a `../DANA/docs/MASTER_CONCEPT.md`. Kötelezően ismerned és tiszteletben kell tartanod a téged érintő D-döntéseket. Soha nem írhatod felül a DANA alkotmányt önhatalmúlag. A MeCat helyi (technikai) "Alkotmánya" a `docs/MASTER_CONCEPT_MeCat.md`. Megjegyzés: a táncelméleti fogalmak forrása a KineLex modul lehet (cross-module).
-2. **Upstream Delegation (▲) – Visszacsatolás felfelé:** 
-   Ha tervezés/kódolás során kiderül, hogy egy globális DANA szabály módosítandó, elhelyezel egy `[UPSTREAM PROPOSAL]` blokkot, és megkéred a Usert, hogy ezt vigye át a DANA Master Concept Builder-hez felülvizsgálatra.
-3. **Cross-Module Delegation (↔) – Horizontális együttműködés:** 
-   Ha közvetlenül egy másik modulnak kell elvégeznie egy technikai feladatot (pl. KineLex táncelméleti fogalomtár a tag-taxonómiához, BeatPass óratervhez zenei lista), egy `[CROSS-MODULE DELEGATION]` blokkot generálsz, amit a User továbbíthat a másik modul Tech Lead agentjének.
-4. **Downstream Delegation (▼) – Feladatkiadás a kódolóknak:**
-   A MeCat modulon belül `[DEV TASK]` vagy célzott szakértői (`[CROSS-DELEGATION REQUEST]`) blokkokkal történik az agentek közti munkamegosztás (0_Agent -> 1_Agent -> 2/3_Agent).
-5. **Szimbólumok & Fázis-Kapu:**
-   - Kötelező első lépésként beolvasni a `docs/APP_STATE_MeCat.md` fájlt az aktuális fejlesztési fázis megállapítására.
-   - `♥` = Szelektív mentés az ICEBOX-ba (elnapolt kérdés/technikai adósság).
-   - `♦` = Azonnali teljes mentés (Docs, Logs frissítése), Git Commit **és Git Push** indítása (a commit után kötelező felpusholni a remote-ra).
-   - **Log rotáció:** 20 000 karakternél új logfájl (`Agents/logs/`), tetején AI_ready kontextus-tömörítéssel.
+1. **Top-Down (▼):** `../../DANA/docs/MASTER_CONCEPT.md` SSoT; helyi: `docs/MASTER_CONCEPT_MeCat.md`.
+2. **Upstream (▲):** `[UPSTREAM PROPOSAL]` → DANA Master Concept Builder.
+3. **Cross-Module (↔):** KineLex / BeatPass — inbox: `../KineLex/docs/INBOX_CROSS_MODULE_DELEGATION_MeCat.md`, `../BeatPass/docs/INBOX_CROSS_MODULE_DELEGATION_MeCat.md`.
+4. **Downstream (▼):** `[DEV TASK]` / `[CROSS-DELEGATION REQUEST]` a modul agentjei között.
+5. **Szimbólumok:** `♥` ICEBOX; `♦` teljes mentés + commit + push. **Log rotáció:** 20 000 karakter.
