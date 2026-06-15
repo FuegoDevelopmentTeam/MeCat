@@ -1,8 +1,8 @@
 # BACKLOG_PROMPT_CACHE_MeCat.md — MeCat Local Prompt Cache
 
-Version: 1.0.0 (Deferred Tech Tasks)  
+Version: 1.1.0 (Deferred Tech Tasks)  
 Date: 2026-06-15  
-Status: DEFERRED (PR-008 → Phase 1; PR-009 → Phase 2; PR-010 → Phase 3; PR-011 → Phase 4)  
+Status: DEFERRED (PR-008 → Phase 1; PR-009 → Phase 2; PR-010 → Phase 3; PR-011 → Phase 4; PR-012 → Phase 4+ haladó)  
 
 Ez a fájl a MeCat modul **helyi prompt váróterme (Prompt Cache)**. Ide kerülnek azok a magasabb szintű technikai specifikációk és fejlesztési promptok, amelyek a jelenlegi fázisban még nem végrehajthatóak, megakadályozva a kódoló Agentek túl korai implementációs kísérleteit.
 
@@ -67,4 +67,18 @@ MŰSZAKI IMPLEMENTÁCIÓS PROMPT:
 2. Write-back (/api/write-back): jóváhagyott tagek ID3v2/metaadat írása, letisztult fájlnév, eredeti megőrzése.
 3. GWS/Drive szinkron a tanári laptopokra; AIMP Smart Playlist export/automatikus frissülés.
 4. Multi-dimenziós tag-keresés UI (/api/search) + Smart Playlist szerkesztő.
+```
+
+### 🔵 PR-012 — Haladó: MIR / Audio-Embedding, Harmonikus Keverés & Ízlés-Vektor Ajánló — Phase 4+ (D083, P43, P46)
+```markdown
+[TARGET_AGENT: MeCat Tech Lead & Full-Stack Developer]
+[DEPENDENCY: Phase 4 Completion (két alkotmány + write-back/sync működik)]
+[SPEC_LINK: docs/MASTER_CONCEPT_MeCat.md §2.3-2.5; DANA P43, P46, D083]
+
+MŰSZAKI IMPLEMENTÁCIÓS PROMPT (haladó képesség — a "világ leghaladóbb elvei" kör):
+1. Audio-embedding: önfelügyelt zenei reprezentációs vektorok kinyerése (pl. CLAP/OpenL3 vagy hasonló), tárolás pgvector mezőben → "találj hasonló hangzású számot" szemantikus keresés.
+2. Harmonikus keverés: Camelot-kerék (key + BPM) alapú átmenet-ajánló auto-DJ/óraterv-szekvenciához.
+3. Tanári ízlés-vektor: a teacher_taste_overlays-ből collaborative-filtering / embedding-alapú személyre szabott ajánló (a kétszintű alkotmány adatvezérelt kiterjesztése).
+4. LLMOps (P46): eval-készlet a tag-minőségre, prompt-verziózás, tenant-szintű AI-költség budget.
+FONTOS: csak a Phase 1-4 stabil alaprétegre építhető; nem helyettesíti a determinisztikus + emberi review pipeline-t (P43), hanem kiegészíti.
 ```
