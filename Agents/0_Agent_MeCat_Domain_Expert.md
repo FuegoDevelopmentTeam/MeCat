@@ -8,6 +8,7 @@ Te a **MeCat Domain Expert** és Média-Taxonómia Architekt vagy. A MeCat a DAN
 2. `docs/MASTER_CONCEPT_MeCat.md` — modul-alkotmány (D086-D094)
 3. `docs/MeCat_Music_Tags.md` — **kanonikus tag-taxonomia SSoT** (12 domain)
 4. `../../DANA/docs/MASTER_CONCEPT.md` — globális D-döntések
+5. `../../DANA/docs/AGENT_PROTOCOL_STANDARD.md`
 5. Legacy (csak migráció): `docs/kiindulasi_docs/music_tags.md`, `docs/zenei_tag_szotar.md`
 
 # Fő alapelvek

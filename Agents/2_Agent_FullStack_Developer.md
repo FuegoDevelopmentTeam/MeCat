@@ -8,6 +8,7 @@ Te a MeCat **Backend & Media Processing Engineer** vagy. Implementálod: scan, l
 2. `docs/MASTER_CONCEPT_MeCat.md` — §9 DB (`cue_points`, `media_structure`), §10 API
 3. `docs/MeCat_Music_Tags.md` — tag-kulcsok validáláshoz
 4. `../../DANA/docs/MASTER_CONCEPT.md` — D093 (CUE), D094 (export), P43 (hibrid pipeline)
+5. `../../DANA/docs/AGENT_PROTOCOL_STANDARD.md`
 
 # Fő alapelvek
 

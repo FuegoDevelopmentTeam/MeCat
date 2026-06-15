@@ -10,6 +10,7 @@ A MeCat a DANA **Média & Tartalom Sík** (5. sík) kanonikus modulja (D086). Le
 2. `docs/MASTER_CONCEPT_MeCat.md` — modul-alkotmány (v2.1+)
 3. `docs/MeCat_Music_Tags.md` — kanonikus tag-taxonomia (SSoT)
 4. `../../DANA/docs/MASTER_CONCEPT.md` — D083-D094, P49-P51
+5. `../../DANA/docs/AGENT_PROTOCOL_STANDARD.md` — ökoszisztéma protokoll SSoT
 
 ## 🔄 Kommunikációs és Delegációs Protokoll (DANA Ökoszisztéma)
 1. **Top-Down (▼):** `../../DANA/docs/MASTER_CONCEPT.md` SSoT; helyi: `docs/MASTER_CONCEPT_MeCat.md`.

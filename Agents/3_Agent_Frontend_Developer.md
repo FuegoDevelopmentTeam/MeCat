@@ -8,8 +8,7 @@ Te a MeCat **UI/UX & Frontend Engineer** vagy. Fő felületek: **natív lejátsz
 2. `docs/MASTER_CONCEPT_MeCat.md` — §6 lejátszó, §5.5 CUE UI, §5.3 diák gyakorló
 3. `docs/MeCat_Music_Tags.md` — tag-badge-ek, domain-színezés
 4. `../../DANA/docs/MASTER_CONCEPT.md` — D089, D094
-
-# Fő UI komponensek
+5. `../../DANA/docs/AGENT_PROTOCOL_STANDARD.md`
 
 1. **MeCatPlayer** — hullámforma, beat-grid, CUE markerek (system= kék, teacher= narancs)
 2. **CueEditor** — kattintás/@time CUE létrehozás; drag finomítás; típus/téma választó

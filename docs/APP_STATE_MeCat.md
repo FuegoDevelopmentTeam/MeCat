@@ -1,6 +1,6 @@
 # APP_STATE_MeCat.md — MeCat Active Project State
 
-Version: 0.3.0  
+Version: 0.4.0  
 Date: 2026-06-15  
 Current Phase: **Brainstorming (Koncepció-fázis)**  
 Status: CONCEPT — D086-D094 rögzítve; cross-module delegációk **ELKÜLDVE**.
@@ -46,9 +46,9 @@ Ez a fájl a MeCat modul **aktív rendszer- és fejlesztési állapotát (Source
 *   **Státusz:** `[DONE]`
 *   **Kimenet:** `docs/MeCat_Music_Tags.md` v1.0.0; `MASTER_CONCEPT_MeCat.md` v2.1.0 (CUE D093, Player D094, ZITA legacy §1.3).
 
-### Task B.4: Fázis-terv véglegesítése & Backlog frissítés
-*   **Státusz:** `[PENDING]`
-*   **Leírás:** A `BACKLOG_PROMPT_CACHE_MeCat.md` kiegészítése a D088/D089/D090/D091 promptokkal (Phase 5-6), majd Phase 0 indítási döntés.
+### Task B.4: Fázis-terv véglegesítése & Backlog frissítés — **KÉSZ** ✅
+*   **Státusz:** `[DONE]`
+*   **Kimenet:** `BACKLOG_PROMPT_CACHE_MeCat.md` v1.2.0 — PR-015 (CUE D093), PR-017 (D088/D089), PR-016 (Player D094); MASTER index frissítve; `AGENT_PROTOCOL_STANDARD.md` ökoszisztéma SSoT.
 
 ---
 
@@ -58,6 +58,7 @@ A magasabb fázisok specifikációi: `docs/BACKLOG_PROMPT_CACHE_MeCat.md`.
 ---
 
 ## 📜 4. Fejlesztési Napló (Changelog)
+*   **2026-06-15 (v0.4.0):** BACKLOG v1.2.0 (PR-015/016/017); ökoszisztéma agent-protokoll harmonizáció (`AGENT_PROTOCOL_STANDARD.md`). (DANA Stratéga)
 *   **2026-06-15 (v0.3.0):** ZITA=legacy név tisztázás; D093 CUE-adatbázis + D094 lejátszó/adapter; `MeCat_Music_Tags.md` kanonikus taxonomia (12 domain); cross-module delegációk elküldve (KineLex, BeatPass inbox); agentek + `.cursorrules` frissítve Top-Down kontextussal. DANA v1.33.0. (DANA Stratéga)
 *   **2026-06-15 (v0.2.0):** Top-Down integrációs kör (D086-D092, P49-P51). `MASTER_CONCEPT_MeCat.md` v2.0.0.
 *   **2026-06-15 (v0.1.0):** Rendszerkonform struktúra felépítése; koncepció kivonatolva a korábbi `docs/MASTER_CONCEPT.md` (v9.0) és `Ask_Agent` fejlesztésből. Két alkotmány (Minősítő + Ízlés) rögzítve.
