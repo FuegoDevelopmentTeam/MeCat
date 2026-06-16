@@ -1,6 +1,6 @@
 # MASTER_CONCEPT_MeCat.md — MeCat Modul-Alkotmány (Média-Katalógus & Tartalom-Sík)
 
-Version: 2.1.0 (ZITA legacy integráció + CUE-adatbázis D093 + MeCat Lejátszó & Adapter-réteg D094 + `MeCat_Music_Tags.md` kanonikus taxonomia)
+Version: 2.2.0 (ZITA legacy integráció + CUE-adatbázis D093 + MeCat Lejátszó & Adapter-réteg D094 + `MeCat_Music_Tags.md` kanonikus taxonomia + DANA v1.36.0 Kulturális Mozgalom adopció: zene-dramaturgiai CUE & forgatókönyv→draft D107, generatív repertoár D105, közönség-társalkotó D102 — §14)
 Date: 2026-06-15
 Status: **BRAINSTORMING (Max-Concept)** — koncepció-fázis; az adatmodell és az API-k illusztratív tervezetek, nem véglegesítve.
 Repo: https://github.com/FuegoDevelopmentTeam/MeCat (korábbi remote: MUSIC.git; korábbi munkanév: **ZITA**)
@@ -8,7 +8,9 @@ DANA SSoT: `../DANA/docs/MASTER_CONCEPT.md` — kanonikus döntés: **D083**, **
 
 > **Forrásdokumentumok (megőrizve referenciaként):** `docs/MASTER_CONCEPT.md` (v9.0), `docs/zenei_tag_szotar.md`, `docs/kiindulasi_docs/music_tags.md`, **`docs/MeCat_Music_Tags.md`** (új, kanonikus tag-hierarchia). A régi `music_tags.md` **nem** SSoT — csak brainstorming-forrás.
 
-> **DANA Platform-elv Adoptáció (v1.34.0 — P52–P62, D095):** A MeCat több új platform-elv **referencia-megvalósítása**: **P58** (a Minősítő ↔ Ízlés Alkotmány a **scoped-overlay kaszkád** kanonikus esete, a P49 általánosításaként); **P57** (a `constitutions.rules_json` determinisztikus taggelő szabályok a **közös Rules-as-Data policy-engine**-en); **P60/P50** (a komparatív ízlés-aggregátor a **közös reputáció-/Bradley–Terry-motoron**, nem külön); **P51** (tartalom-címezhető média + proveniencia — már beépítve). **Kötelező:** **P56/D095** (a média-scope [`shared`/`teacher`/`student-visible`, D092] a tenant-RLS + meta-org-buborék mentén; láthatóság ⟂ funkció); **P53** (jövőbeli jogdíj-bizonylat Money value object). A KineLex `term_id` mint **gráf-hivatkozás** (P52+ #6 re-base).
+> **DANA Platform-elv Adoptáció (v1.34.0 — P52–P62, D095):** A MeCat több új platform-elv **referencia-megvalósítása**: **P58** (a Minősítő ↔ Ízlés Alkotmány a **scoped-overlay kaszkád** kanonikus esete, a P49 általánosításaként); **P57** (a `constitutions.rules_json` determinisztikus taggelő szabályok a **közös Rules-as-Data policy-engine**-en); **P60/P50** (a komparatív ízlés-aggregátor a **közös reputáció-/Bradley–Terry-motoron**, nem külön); **P51** (tartalom-címezhető média + proveniencia — már beépítve). **Kötelező:** **P56/D095** (a média-scope [`shared`/`teacher`/`student-visible`, D092] a tenant-RLS + meta-org-buborék mentén; láthatóság ⟂ funkció); **P53** (jövőbeli jogdíj-bizonylat Money value object). 
+> **Optimalizációs és Skálázási Paradigmaváltás (P63-P70):** **P65 (Graph-Native Knowledge):** A KineLex `term_id` hivatkozások és a CUE-adatbázis (D093) mély gráf-lekérdezéseket igényelnek, így a MeCat is a gráf adatbázis elvekre (Neo4j/AGE) támaszkodik a JSONB/relációs hivatkozások helyett.
+> **Senior Review II Adoptáció (DANA v1.35.0 — P71–P82, D096):** **P72/P78** (komplexitás-költségvetés + szelektív ES): a média-katalógus **sima Postgres CRUD + audit-log**, **NEM** Event Sourcing (ott over-engineering); a `pgvector` szemantikus keresés (§4.1) és a Neo4j/AGE (P65) **alapból OFF**, csak mért triggerre (gráf-méret/latencia) aktiválódik — MVP-ben relációs `term_id` + JSONB elég. **P71** (Shapley): a komparatív ízlés-aggregátor (§4.10, P50) Bradley–Terry/Elo motorja a **közös** axiomatikus elosztó-/reputáció-családba tartozik (P60), nem külön. **P77** (Bounded Context): a MeCat Media-Plane egy Bounded Context; a KineLex→MeCat ontológia-kötés **Customer-Supplier** reláció verziózott data contracttal (P45), a tag-proveniencia (P51) az Anti-Corruption határ. **P79** (RLS): a média-scope (D092) buborék-RLS-e (P56) mellé app-réteg guard + izolációs teszt. (A pénzügyi P74/P75/P76/P80 a MeCat-ot csak a jövőbeli jogdíj-bizonylat eseménynél érinti, DrBill felé.)
 
 ---
 
@@ -488,3 +490,28 @@ CREATE TABLE tag_learned_rules (
 
 ## Függelék A. Legacy környezet (megőrzött kontextus — LPDPC Master Gép)
 A korábbi prototípus (`docs/MASTER_CONCEPT.md` v9.0) egy dedikált **LPDPC Master gépen**, AIMP + mp3tag + Virtual DJ + GWS/Drive sync köré épült, a tagek az ID3v2 mezőkben, a Smart Playlistek a tanári laptopokon. A MeCat ezt **nem közvetlenül folytatja**: a katalógus DB lesz az SSoT, az ID3/fájlnév annak (a régivel kompatibilis) projekciója; az AIMP/Drive-sync mint **kimeneti adapter** marad támogatva. A salsa.txt/bachata.txt listák Golden Data-ként migrálva.
+
+---
+
+## 14. DANA v1.36.0 Adopció — Zene-Dramaturgia & Generatív Repertoár (Top-Down ▼, D097-D109)
+
+A MeCat a „Kulturális Mozgalom" kör (DANA D097-D109) **tartalom-intelligencia** vonatkozásait adoptálja. A MeCat e körben több döntés **referencia-megvalósítása**.
+
+### 14.1. D107 — Zene-Dramaturgiai (Hangulati) Térkép & Drámai CUE-pontok `[Érintett: KineLex, BeatPass]`
+A meglévő objektív szerkezet- (§4.3) és energia-térkép (§4.4) mellé a MeCat **dramaturgiai (hangulati) réteget** is épít:
+*   **Drámai CUE-típusok (a D093 CUE-DB bővítése):** a `cue_type` kiegészül drámai/affekt-osztállyal — `tension_build`, `climax`, `release`, `mood_shift`, `catharsis`, `suspense`. A forrás az affekt-térkép (`affect.*`, `MeCat_Music_Tags.md` VI) + az energia-ív (§4.4).
+*   **Kétszintű (P49):** rendszer-szintű drámai CUE (MIR-detektált, objektív) + tanári drámai CUE (szubjektív, pedagógiai/művészeti megjegyzéssel) — az objektív réteg fölé rétegezve.
+*   **Zene-dramaturgiai térkép:** a szám teljes hosszán a feszültség→feloldás ív vizualizálva a Lejátszóban (§6.1), a peak-/break-detektálással (§4.4) összekötve.
+
+### 14.2. D107 — Forgatókönyv→Draft Pipeline (KineLex ↔ MeCat ↔ belső vágó)
+A KineLex **koreográfia-forgatókönyvéhez** (dramaturgiai ív + szekciók, cél-affekt + `term_id` mozdulat-igény) a MeCat **automatikusan felajánl** illő zenei részeket ÉS Inspirációs Tár videó-mozdulatokat (§7.1):
+*   **Dramaturgia-vezérelt szekvenálás (P83):** az illesztőmotor (D088) kiterjesztése — nemcsak `usage`/nehézség, hanem **cél-affekt és drámai hatás** szerint illeszt (a forgatókönyv szekcióinak affektjeihez).
+*   **Draft-generálás (belső videóvágó):** a MeCat Lejátszó (§6.1) + a D022 zenevágás B-szint kiterjesztése összefűzi a zenei + videó-szegmenseket bemutatható **draft**-tá (2D timeline + videó-collage); jogtisztaság a D090 (§7.2) szerint.
+*   **3D-roadmap (Phase-gate, P72):** a teljes 3D színpadi koreografálás a **KineLex** §15 (Kreatív Koreográfia-Tervező & 3D Show) hatásköre; a MeCat a zenei/CUE/affekt-sávot szolgáltatja hozzá. A 3D-render explicit innovációs-zseton mögött, késői fázisban.
+
+### 14.3. További érintett döntések
+*   **D105 (Generatív Repertoár):** több tanár ízlés-alkotmányából (P49) + dialektusából (KineLex D077) + bevált playlistjeiből (Golden Data, §5.2) show-koncepció-javaslat; LLMOps-kormányzással (P46).
+*   **D102 (Közönség mint Társalkotó):** a komparatív ízlés-aggregátor (§4.10, P50) megnyitva a diákoknak/közönségnek; `rating_student` (D086) + gráf-reputáció (P60).
+*   **D098 (On-Ramp):** a `rating_beginner` dimenzió + Gyakorló-Kísérő (D089) a laikus-barát első élményhez.
+
+> **Felszólítás (a User közvetíti):** a dramaturgiai CUE-réteg és a forgatókönyv-illesztő implementációja a MeCat Tech Lead hatásköre; a koreográfia-forgatókönyv séma + 3D-koreografáló a KineLex-szel egyeztetendő (`[CROSS-MODULE DELEGATION]`), a draft-vágó jog-tisztasága a D090 mentén.
