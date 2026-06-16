@@ -1,6 +1,6 @@
 # MASTER_CONCEPT_MeCat.md — MeCat Modul-Alkotmány (Média-Katalógus & Tartalom-Sík)
 
-Version: 2.3.0 (ZITA legacy integráció + CUE-adatbázis D093 + MeCat Lejátszó & Adapter-réteg D094 + `MeCat_Music_Tags.md` kanonikus taxonomia + DANA v1.36.0 Kulturális Mozgalom adopció: zene-dramaturgiai CUE & forgatókönyv→draft D107, generatív repertoár D105, közönség-társalkotó D102 — §14 + DANA v1.37.0 Kooperatív Szakmai Ív adopció: DJ kurátori kredencial D110, csendes hozzájáruló D114 — §15)
+Version: 2.4.0 (ZITA legacy integráció + CUE-adatbázis D093 + MeCat Lejátszó & Adapter-réteg D094 + `MeCat_Music_Tags.md` kanonikus taxonomia + DANA v1.36.0 Kulturális Mozgalom adopció: zene-dramaturgiai CUE & forgatókönyv→draft D107, generatív repertoár D105, közönség-társalkotó D102 — §14 + DANA v1.37.0 Kooperatív Szakmai Ív adopció: DJ kurátori kredencial D110, csendes hozzájáruló D114 — §15 + DANA v1.38.0 Szervezői Ökoszisztéma adopció: D123, D124 — §16)
 Date: 2026-06-15
 Status: **BRAINSTORMING (Max-Concept)** — koncepció-fázis; az adatmodell és az API-k illusztratív tervezetek, nem véglegesítve.
 Repo: https://github.com/FuegoDevelopmentTeam/MeCat (korábbi remote: MUSIC.git; korábbi munkanév: **ZITA**)
@@ -526,3 +526,14 @@ A MeCat a kooperatív szakmai ív **kurátori/médiakurátori** vonatkozásait a
 *   **D114 (Csendes Hozzájáruló):** a Tanári/kurátori Ízlés Alkotmány (P49/D087) + kredencial (D091) **brand-független** — a hozzájáruló kurátor a Brand-Tárcsát (D114) „csendes"-re állítva is gyűjti az értéket (royalty/equity), a neve elrejtésével (privacy vs. felfedezhetőség, vö. M-ICE-02).
 
 > **Felszólítás (a User közvetíti):** a DJ-kredencial foglalási integrációja a MeCat Tech Lead hatásköre; a rendezvényi előre-foglalás a BeatPass-szal egyeztetendő (`[CROSS-MODULE DELEGATION]`).
+
+---
+
+## 16. DANA v1.38.0 Adopció — Szervezői Ökoszisztéma & Anti-Monopol Kooperáció (Top-Down ▼, D123, D124)
+
+A MeCat a szervezői ökoszisztéma és anti-monopol kooperáció kör MeCat-vonatkozásait adoptálja (a zenei kuráció, a DJ-kredenciál és a zenei minőség-indexek gazdája).
+
+*   **D123 (Esemény-Erőforrás Likviditás & Fair-Access Marketplace):** a DJ kurátori kredenciál (D091) és az esemény energia-ívéhez való zenei illesztés közvetlen integrációs pontot képez az esemény-staffing piactérrel, segítve a szervezőket a megfelelő zenei szakemberek kiválasztásában.
+*   **D124 (Esemény Minőség- & Kultúra-Index / SafeFloor for Events):** a zenei minőség és a zene-dramaturgiai ív (D107) adatok közvetlen bemenetet képeznek az esemény-szintű Kultúra-Index számításához, biztosítva, hogy a zenei tartalom is a kulturált, minőségi irányba mutasson.
+
+> **Felszólítás (a User közvetíti):** a DJ-kredenciál és a zenei-dramaturgiai adatok átadása a BeatPass staffing és Kultúra-Index motorjai felé a MeCat Tech Lead hatásköre (`[CROSS-MODULE DELEGATION]`).
